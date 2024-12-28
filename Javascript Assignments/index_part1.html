@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like Box</title>
+    <style>
+        .like-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 300px;
+            font-family: Arial, sans-serif;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .like-box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .user-name {
+            font-weight: bold;
+        }
+
+        .likes {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .like-box-content {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .like-button {
+            background-color: #ffd700;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+            color: #000;
+        }
+
+        .like-button:hover {
+            background-color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="like-box">
+        <div class="like-box-header">
+            <span class="user-name">Some User</span>
+            <span class="likes" id="likes-count">3 like(s)</span>
+        </div>
+        <div class="like-box-content">
+            This is some filler text, it can say anything we like.
+        </div>
+        <button class="like-button" id="like-button">Like</button>
+    </div>
+
+    <script>
+        // Get the like button and likes count element
+        const likeButton = document.querySelector("#like-button");
+        const likesCount = document.querySelector("#likes-count");
+
+        // Initialize the current likes count
+        let currentLikes = 3;
+
+        // Add an onclick event to the button
+        likeButton.onclick = function () {
+            currentLikes++; // Increment the likes count
+            likesCount.textContent = `${currentLikes} like(s)`; // Update the text
+        };
+    </script>
+</body>
+</html>

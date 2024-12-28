@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Feed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar {
+            float: left;
+            width: 25%;
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .sidebar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        .sidebar a {
+            display: block;
+            margin-top: 10px;
+            color: blue;
+            text-decoration: underline;
+            font-size: 0.9em;
+        }
+
+        .feed {
+            float: left;
+            width: 70%;
+        }
+
+        .post {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .post-header .username {
+            font-weight: bold;
+        }
+
+        .post-content {
+            margin-bottom: 8px;
+        }
+
+        .like-button {
+            background-color: #ffd700;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+            color: #000;
+        }
+
+        .like-button:hover {
+            background-color: #ffcc00;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Your Feed</div>
+
+        <div class="sidebar">
+            <img src="#" alt="Avatar">
+            <a href="#">Add an avatar</a>
+            <p>James Doe</p>
+        </div>
+
+        <div class="feed">
+            <div class="post">
+                <div class="post-header">
+                    <span class="username">Neil M</span>
+                    <span class="likes" id="likes-1">9 like(s)</span>
+                </div>
+                <div class="post-content">
+                    I just set up this new discord bot, let me know what you all think. <a href="#">link</a>
+                </div>
+                <button class="like-button" id="like-button-1">Like</button>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <span class="username">Nichole K</span>
+                    <span class="likes" id="likes-2">12 like(s)</span>
+                </div>
+                <div class="post-content">
+                    Just finished my <a href="#">next comic</a>, check it out.
+                </div>
+                <button class="like-button" id="like-button-2">Like</button>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <span class="username">Jim R</span>
+                    <span class="likes" id="likes-3">9 like(s)</span>
+                </div>
+                <div class="post-content">
+                    I can't stop listening to the <a href="#">new album</a>. Who else is liking it?
+                </div>
+                <button class="like-button" id="like-button-3">Like</button>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <script>
+        let likeCounts = {
+            1: 9,
+            2: 12,
+            3: 9
+        };
+
+        document.querySelector("#like-button-1").onclick = function () {
+            likeCounts[1]++;
+            document.querySelector("#likes-1").textContent = `${likeCounts[1]} like(s)`;
+        };
+
+        document.querySelector("#like-button-2").onclick = function () {
+            likeCounts[2]++;
+            document.querySelector("#likes-2").textContent = `${likeCounts[2]} like(s)`;
+        };
+
+        document.querySelector("#like-button-3").onclick = function () {
+            likeCounts[3]++;
+            document.querySelector("#likes-3").textContent = `${likeCounts[3]} like(s)`;
+        };
+    </script>
+</body>
+</html>
