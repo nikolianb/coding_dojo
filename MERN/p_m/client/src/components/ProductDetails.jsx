@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const ProductDetails = () => {
@@ -10,8 +10,14 @@ const ProductDetails = () => {
   useEffect(() => {
     axios.get(`http://localhost:5000/api/products/${id}`)
       .then((response) => setProduct(response.data))
-      .catch(() => navigate("/"));
+      .catch(() => navigate("/products"));
   }, [id, navigate]);
+
+  const handleDelete = () => {
+    axios.delete(`http://localhost:5000/api/products/${id}`)
+      .then(() => navigate("/products"))
+      .catch((error) => console.log("Delete Error:", error));
+  };
 
   if (!product) {
     return <p>Loading product details...</p>;
@@ -22,6 +28,8 @@ const ProductDetails = () => {
       <h2>{product.title}</h2>
       <p><strong>Price:</strong> ${product.price}</p>
       <p><strong>Description:</strong> {product.description}</p>
+      <Link to={`/edit/${product._id}`}><button>Edit</button></Link>
+      <button onClick={handleDelete}>Delete</button>
       <button onClick={() => navigate("/products")}>Back to Products</button>
     </div>
   );

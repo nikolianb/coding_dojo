@@ -26,3 +26,21 @@ exports.getProductById = async (req, res) => {
     res.status(400).json({ message: "Error fetching product", error });
   }
 };
+
+exports.updateProduct = async (req, res) => {
+  try {
+    const updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(updatedProduct);
+  } catch (error) {
+    res.status(400).json({ message: "Error updating product", error });
+  }
+};
+
+exports.deleteProduct = async (req, res) => {
+  try {
+    await Product.findByIdAndDelete(req.params.id);
+    res.json({ message: "Product deleted successfully" });
+  } catch (error) {
+    res.status(400).json({ message: "Error deleting product", error });
+  }
+};

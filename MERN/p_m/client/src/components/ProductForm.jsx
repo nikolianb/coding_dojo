@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ProductForm = () => {
@@ -7,6 +8,8 @@ const ProductForm = () => {
   const [description, setDescription] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const navigate = useNavigate(); // Ensure useNavigate is imported and used correctly
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,10 +49,10 @@ const ProductForm = () => {
   return (
     <div>
       <h2>Product Manager</h2>
-      
+
       {error && <p className="error">{error}</p>}
       {success && <p className="success">{success}</p>}
-      
+
       <form onSubmit={handleSubmit} className="form">
         <label>Title:</label>
         <input
@@ -77,6 +80,10 @@ const ProductForm = () => {
 
         <button type="submit">Create</button>
       </form>
+      <br></br>
+      <button onClick={() => navigate("/products")} className="view-products-btn">
+        View All Products
+      </button>
     </div>
   );
 };
