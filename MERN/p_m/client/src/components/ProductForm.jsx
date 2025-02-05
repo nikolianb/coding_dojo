@@ -44,7 +44,7 @@ const ProductForm = () => {
   };
 
   return (
-    <div className="container">
+    <div>
       <h2>Product Manager</h2>
       
       {error && <p className="error">{error}</p>}

@@ -45,3 +45,43 @@ button:hover {
 .error {
   color: red;
 }
+
+.product-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-list li {
+  padding: 10px;
+  margin-bottom: 5px;
+  background: #f4f4f4;
+  border-radius: 5px;
+}
+
+.product-list a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.product-list a:hover {
+  text-decoration: underline;
+}
+
+.product-details {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.product-details button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-details button:hover {
+  background: #0056b3;
+}
